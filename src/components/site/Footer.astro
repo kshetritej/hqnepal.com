@@ -21,7 +21,7 @@ import { siteConfig } from "../../config/site.config";
           <li><a href="/about">About</a></li>
           <li><a href="/#work">Work</a></li>
           <li><a href="/#pricing">Pricing</a></li>
-          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
 
@@ -71,7 +71,7 @@ import { siteConfig } from "../../config/site.config";
   .footer__grid {
     display: grid;
     grid-template-columns: 1.5fr repeat(2, minmax(0, 1fr));
-    gap: var(--spacing-xl);
+    gap: var(--spacing-7);
   }
 
   @media (max-width: 60rem) {
@@ -85,7 +85,7 @@ import { siteConfig } from "../../config/site.config";
   .footer__brand {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-4);
   }
 
   .footer__logo-mark {
@@ -111,7 +111,7 @@ import { siteConfig } from "../../config/site.config";
   .footer__heading {
     font-size: 0.9375rem;
     font-weight: 600;
-    margin: 0 0 var(--spacing-sm);
+    margin: 0 0 var(--spacing-3);
   }
 
   .footer__list {
@@ -132,7 +132,7 @@ import { siteConfig } from "../../config/site.config";
   .footer__list a:hover { color: var(--foreground); }
 
   .footer__socials {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-4);
     display: flex;
     gap: 0.5rem;
   }
@@ -154,8 +154,8 @@ import { siteConfig } from "../../config/site.config";
   .footer__bottom {
     display: flex;
     justify-content: space-between;
-    padding-top: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-6);
+    margin-top: var(--spacing-6);
     border-top: 1px solid var(--border);
     font-size: 0.8125rem;
     color: var(--muted-foreground);

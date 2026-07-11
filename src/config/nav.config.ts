@@ -11,7 +11,7 @@ export const mainNav: NavItem[] = [
   { href: "/#work", label: "Work" },
   { href: "/#pricing", label: "Pricing" },
   { href: "/#faq", label: "FAQ" },
-  { href: "/#contact", label: "Contact" },
+    { href: "/contact", label: "Contact" },
 ] as const;
 
 export const footerNav = {
@@ -21,7 +21,7 @@ export const footerNav = {
   ] as const,
   company: [
     { href: "/about", label: "About" },
-    { href: "/#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
   ] as const,
   social: [
     { href: "https://github.com/hqnepal", label: "GitHub" },
