@@ -1,0 +1,53 @@
+/**
+ * Typography tokens — Manrope (body) + Outfit (headings)
+ */
+
+@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/outfit";
+
+:root {
+  --font-sans:
+    "Manrope Variable", system-ui, -apple-system, blinkmacsystemFont, "Segoe UI",
+    roboto, "Helvetica Neue", arial, sans-serif;
+  --font-heading:
+    "Outfit Variable", "Manrope Variable", system-ui, -apple-system, sans-serif;
+  --font-mono:
+    ui-monospace, sfmono-regular, "SF Mono", menlo, consolas,
+    "Liberation Mono", monospace;
+
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
+  --text-base: clamp(0.9375rem, 0.875rem + 0.3125vw, 1.0625rem);
+  --text-lg: clamp(1.0625rem, 1rem + 0.3125vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3rem);
+  --text-5xl: clamp(3rem, 2.25rem + 3.75vw, 4rem);
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  --heading-h1: var(--text-5xl);
+  --heading-h2: var(--text-4xl);
+  --heading-h3: var(--text-3xl);
+  --heading-h4: var(--text-2xl);
+  --heading-h5: var(--text-xl);
+  --heading-h6: var(--text-lg);
+}

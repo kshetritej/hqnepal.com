@@ -1,41 +1,54 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
+# Node
+node_modules/
+.cache/
+.nyc_output/
 .DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
 .env*
+!.env.example
+.dev.vars
+.agent-skills.lock.md
 
-# vercel
-.vercel
+# Build artifacts
+dist/
+build/
+.astro/
+.cache
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Dependencies
+# pnpm-lock.yaml is intentionally committed for reproducible CI builds
+
+# Logs and reports
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+.history
+
+# Project-specific
+*.log
+*.tmp
+
+# Cloud
+.redwood
+.cloudflare
+cloudflare-pages-report.html
+.wrangler/
+
+# Dev verification artifacts
+screenshots/
+
+# Agentic Kanban (local task board — not part of the template)
+.agentkanban/
+
+# Lighthouse / audit reports
+lh-*.json
+
+# Temporary files
+*.swp
+*.swo
+*~

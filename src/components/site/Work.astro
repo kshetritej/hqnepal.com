@@ -1,0 +1,71 @@
+---
+/**
+ * Work — clean card grid
+ */
+import { getCollection } from "astro:content";
+
+const work = (await getCollection("work")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="container py-16">
+  <header class="section-head">
+    <p class="section-head__eyebrow" data-animate>Selected projects</p>
+    <h2 class="section-head__title" data-animate>Work that moved the needle</h2>
+  </header>
+
+  <div class="work__grid">
+    {work.map((project) => (
+      <div class="work__card" data-animate>
+        <span class="work__tag">{project.data.tag}</span>
+        <h3 class="work__title">{project.data.title}</h3>
+        <p class="work__desc">{project.data.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .work__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--spacing-6);
+  }
+
+  .work__card {
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-2xl);
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .work__card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .work__tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted-foreground);
+  }
+
+  .work__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0.25rem 0 0;
+  }
+
+  .work__desc {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+    margin: 0;
+  }
+</style>

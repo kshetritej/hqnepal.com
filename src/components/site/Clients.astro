@@ -1,0 +1,68 @@
+---
+/**
+ * Clients — clean logo cloud
+ */
+const clientCount = 22;
+const clients = Array.from({ length: clientCount }, (_, i) => ({
+  src: `/clients/${i + 1}.png`,
+  alt: `Client ${i + 1}`,
+}));
+---
+
+<section class="container py-10">
+  <p class="clients__title" data-animate>Trusted by 150+ clients across the world</p>
+  <div class="clients__grid">
+    {clients.map((client, i) => (
+      <div class="clients__item" data-animate="fade">
+        <img
+          src={client.src}
+          alt={client.alt}
+          width="180"
+          height="72"
+          loading="lazy"
+          class="clients__img"
+        />
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .clients__title {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    margin-bottom: var(--spacing-6);
+  }
+
+  .clients__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-6) var(--spacing-8);
+  }
+
+  .clients__item {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .clients__img {
+    max-width: 170px;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, filter 0.2s ease;
+  }
+
+  :global(.dark) .clients__img {
+    filter: brightness(0) invert(1);
+  }
+
+  .clients__item:hover .clients__img {
+    opacity: 1;
+  }
+</style>

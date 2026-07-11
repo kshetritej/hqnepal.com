@@ -1,0 +1,91 @@
+---
+/**
+ * Testimonial — clean blockquote cards
+ */
+import { getCollection } from "astro:content";
+
+const testimonials = (await getCollection("testimonials")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="container py-16">
+  <header class="section-head">
+    <p class="section-head__eyebrow" data-animate>Client stories</p>
+    <h2 class="section-head__title" data-animate>Don't take our word for it</h2>
+  </header>
+
+  <div class="testimonial__grid">
+    {testimonials.map((t) => (
+      <figure class="testimonial__card" data-animate>
+        <blockquote class="testimonial__quote">
+          &ldquo;{t.data.quote}&rdquo;
+        </blockquote>
+        <figcaption class="testimonial__author">
+          <div>
+            <div class="testimonial__name">{t.data.name}</div>
+            <div class="testimonial__role">{t.data.role}</div>
+          </div>
+          <span class="testimonial__badge">{t.data.industry}</span>
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+</section>
+
+<style>
+  .testimonial__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--spacing-6);
+  }
+
+  .testimonial__card {
+    margin: 0;
+    padding: var(--spacing-6);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    background: var(--card);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  .testimonial__quote {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--muted-foreground);
+    margin: 0;
+    flex: 1;
+  }
+
+  .testimonial__author {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: var(--spacing-4);
+    border-top: 1px solid var(--border);
+  }
+
+  .testimonial__name {
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+
+  .testimonial__role {
+    font-size: 0.8125rem;
+    color: var(--muted-foreground);
+    margin-top: 0.15rem;
+  }
+
+  .testimonial__badge {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted-foreground);
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+  }
+</style>

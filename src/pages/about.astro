@@ -1,0 +1,306 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../config/site.config";
+---
+
+<BaseLayout title="About" path="/about">
+  <section class="page-hero">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <div class="container page-hero__inner">
+      <p class="page-hero__eyebrow" data-animate>About us</p>
+      <h1 class="page-hero__title" data-animate>We build, we market, we keep it running</h1>
+      <p class="page-hero__text" data-animate>
+        HQNepal is a Pokhara-based agency that brings together software development, marketing and IT under one roof. Most agencies handle one piece. We handle all three.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-16">
+    <div class="about-grid" data-animate>
+      <div class="about-block">
+        <p class="about-block__label">Our belief</p>
+        <p class="about-block__text">
+          We believe great software, sharp marketing and reliable IT should feel like one team — yours. When product, growth and infrastructure talk to each other, businesses move faster. When they don't, someone gets blamed. We make sure that doesn't happen.
+        </p>
+      </div>
+      <div class="about-block">
+        <p class="about-block__label">Where we work</p>
+        <p class="about-block__text">
+          Headquartered in Pokhara, Nepal. We work with clients across South Asia, the Gulf, Europe and North America. Remote-first, async-friendly, timezone-flexible.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-16">
+    <header class="section-head">
+      <p class="section-head__eyebrow" data-animate>How we work</p>
+      <h2 class="section-head__title" data-animate>No handoffs, no silos</h2>
+      <p class="section-head__lead" data-animate>
+        One team across software, marketing and IT. Strategy to execution, under one roof.
+      </p>
+    </header>
+
+    <div class="process-grid">
+      <div class="process-card" data-animate>
+        <span class="process-card__num">01</span>
+        <h3 class="process-card__title">Discovery</h3>
+        <p class="process-card__text">
+          We start with a paid discovery sprint — audit your current state, map the gaps, and chart the path forward. No surprises in the statement of work.
+        </p>
+      </div>
+      <div class="process-card" data-animate>
+        <span class="process-card__num">02</span>
+        <h3 class="process-card__title">Build</h3>
+        <p class="process-card__text">
+          Ship in sprints, demo weekly. Whether it's an MVP, a brand identity or a cloud migration — you see progress every week, not just at the end.
+        </p>
+      </div>
+      <div class="process-card" data-animate>
+        <span class="process-card__num">03</span>
+        <h3 class="process-card__title">Grow</h3>
+        <p class="process-card__text">
+          Launch is the starting line. We run the campaigns, monitor the infrastructure, and iterate on the product. Retainers include a dedicated Slack channel and real humans who answer.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-16">
+    <header class="section-head">
+      <p class="section-head__eyebrow" data-animate>The team</p>
+      <h2 class="section-head__title" data-animate>Built by operators, not just thinkers</h2>
+    </header>
+
+    <div class="team-text" data-animate>
+      <p>
+        Our team spans engineering, design, marketing and infrastructure. We've shipped 120+ projects across fintech, e-commerce, healthcare and SaaS. We don't believe in vanity metrics — we measure ourselves by your revenue, your uptime and your user satisfaction.
+      </p>
+    </div>
+  </section>
+
+  <section class="container py-16">
+    <div class="about-stats" data-animate>
+      {[
+        { value: "120+", label: "Projects shipped" },
+        { value: "150+", label: "Clients worldwide" },
+        { value: "5 yrs", label: "In business" },
+        { value: "98%", label: "Client retention" },
+      ].map((stat) => (
+        <div class="about-stats__item">
+          <div class="about-stats__value">{stat.value}</div>
+          <div class="about-stats__label">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container py-16">
+    <div class="about-cta" data-animate>
+      <h2 class="about-cta__title">Want to work with us?</h2>
+      <p class="about-cta__text">
+        Book a free strategy call. We'll map the path forward in 30 minutes — no pitch deck required.
+      </p>
+      <div class="about-cta__actions">
+        <a href={`mailto:${siteConfig.email}`} class="about-cta__btn">Get in touch</a>
+        <a href="/#services" class="about-cta__btn-outline">See our services</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3.5rem, 8vw, 6.5rem) 0;
+  }
+
+  .page-hero__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-hero__eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted-foreground);
+    margin-bottom: 1rem;
+  }
+
+  .page-hero__title {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: 28ch;
+    margin: 0;
+  }
+
+  .page-hero__text {
+    margin-top: 1.25rem;
+    font-size: clamp(0.95rem, 1.2vw, 1.125rem);
+    line-height: 1.6;
+    color: var(--muted-foreground);
+    max-width: 40rem;
+  }
+
+  .about-grid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .about-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .about-block__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted-foreground);
+    margin-bottom: 1rem;
+  }
+
+  .about-block__text {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--muted-foreground);
+    margin: 0;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--spacing-6);
+  }
+
+  .process-card {
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-2xl);
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .process-card__num {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--muted-foreground);
+  }
+
+  .process-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0.75rem 0 0;
+  }
+
+  .process-card__text {
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+  }
+
+  .team-text {
+    max-width: 48rem;
+    margin-inline: auto;
+  }
+
+  .team-text p {
+    font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+    line-height: 1.6;
+    color: var(--muted-foreground);
+    margin: 0;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-8);
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .about-stats { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .about-stats__value {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .about-stats__label {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+  }
+
+  .about-cta {
+    text-align: center;
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+
+  .about-cta__title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .about-cta__text {
+    margin-top: 0.75rem;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--muted-foreground);
+  }
+
+  .about-cta__actions {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--spacing-lg);
+  }
+
+  .about-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.4rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: box-shadow 0.2s ease;
+  }
+
+  .about-cta__btn:hover { box-shadow: var(--shadow-md); }
+
+  .about-cta__btn-outline {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.4rem;
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: box-shadow 0.2s ease;
+  }
+
+  .about-cta__btn-outline:hover { box-shadow: var(--shadow-md); }
+</style>

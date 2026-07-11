@@ -1,0 +1,109 @@
+---
+/**
+ * CTA — inverted surface call-to-action block
+ */
+---
+
+<section class="cta-section">
+  <div class="cta-card" data-animate>
+    <p class="cta__eyebrow">Get started</p>
+    <h2 class="cta__title">Ready to build your site?</h2>
+    <p class="cta__text">
+      Explore the services or book a free strategy call — the whole stack is ready to go.
+    </p>
+    <div class="cta__actions">
+      <a href="#contact" class="cta__btn-primary">Book a call</a>
+      <a href="#services" class="cta__btn-secondary">Explore services</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    padding: clamp(3rem, 6vw, 5rem) 0 clamp(4rem, 8vw, 6rem);
+  }
+
+  .cta-card {
+    max-width: 60rem;
+    margin-inline: auto;
+    border-radius: var(--radius-2xl);
+    padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3.5rem);
+    background: var(--surface-invert);
+    color: var(--surface-invert-foreground);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+  }
+
+  .cta-card :is(h1, h2, h3, h4, h5, h6, p) {
+    color: var(--surface-invert-foreground);
+  }
+
+  .cta__eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta__title {
+    font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: 22ch;
+    margin: 0 auto;
+    text-wrap: balance;
+  }
+
+  .cta__text {
+    margin-top: 0.75rem;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    opacity: 0.8;
+    max-width: 32rem;
+    margin-inline: auto;
+  }
+
+  .cta__actions {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--spacing-lg);
+  }
+
+  .cta__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.4rem;
+    background: var(--surface-invert-foreground);
+    color: var(--surface-invert);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: opacity 0.2s ease;
+  }
+
+  .cta__btn-primary:hover { opacity: 0.9; }
+
+  .cta__btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.4rem;
+    background: transparent;
+    color: var(--surface-invert-foreground);
+    border: 1px solid currentColor;
+    opacity: 0.6;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: opacity 0.2s ease;
+  }
+
+  .cta__btn-secondary:hover { opacity: 1; }
+</style>

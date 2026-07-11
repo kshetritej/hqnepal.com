@@ -1,0 +1,49 @@
+---
+/**
+ * Stats — numbers that matter
+ */
+const stats = [
+  { value: "120+", label: "Projects shipped" },
+  { value: "150+", label: "Clients worldwide" },
+  { value: "5", label: "Years in business" },
+  { value: "98%", label: "Client retention" },
+];
+---
+
+<section class="container py-16">
+  <div class="stats__grid" data-animate>
+    {stats.map((stat) => (
+      <div class="stats__item">
+        <div class="stats__value">{stat.value}</div>
+        <div class="stats__label">{stat.label}</div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-8);
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .stats__grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .stats__value {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .stats__label {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+  }
+</style>

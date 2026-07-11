@@ -1,0 +1,112 @@
+---
+/**
+ * Services — card grid with section-head pattern
+ */
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+const services = (await getCollection("services")).sort((a, b) => a.data.order - b.data.order);
+
+const iconMap: Record<string, string> = {
+  Code2: "lucide:code-2",
+  Megaphone: "lucide:megaphone",
+  Cpu: "lucide:cpu",
+};
+---
+
+<section class="container py-16">
+  <header class="section-head">
+    <p class="section-head__eyebrow" data-animate>What we do</p>
+    <h2 class="section-head__title" data-animate>Everything you need to ship</h2>
+    <p class="section-head__lead" data-animate>
+      Software, marketing and IT — one team, one plan.
+    </p>
+  </header>
+
+  <div class="services__grid">
+    {services.map((service) => (
+      <div class="services__card" data-animate>
+        <Icon name={iconMap[service.data.icon] || "lucide:code-2"} class="services__icon" />
+        <h3 class="services__title">{service.data.title}</h3>
+        <p class="services__body">{service.data.description}</p>
+        <ul class="services__list">
+          {service.data.features.map((feature) => (
+            <li class="services__item">
+              <svg class="services__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              {feature}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--spacing-6);
+  }
+
+  .services__card {
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-2xl);
+    background: var(--card);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .services__card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .services__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--primary);
+  }
+
+  .services__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .services__body {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+    margin: 0;
+  }
+
+  .services__list {
+    margin: 0.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+  }
+
+  .services__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .services__check {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: var(--success);
+  }
+</style>

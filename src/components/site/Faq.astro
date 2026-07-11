@@ -1,0 +1,82 @@
+---
+/**
+ * Faq — clean details/summary accordion
+ */
+import { getCollection } from "astro:content";
+
+const faqs = (await getCollection("faqs")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="container py-16">
+  <header class="section-head">
+    <h2 class="section-head__title" data-animate>Frequently asked questions</h2>
+  </header>
+
+  <div class="faq__list">
+    {faqs.map((faq, i) => (
+      <details class="faq__item" data-animate={i === 0 ? "" : undefined} open={i === 0}>
+        <summary class="faq__question">{faq.data.question}</summary>
+        <div class="faq__answer">
+          <p>{faq.data.answer}</p>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  .faq__list {
+    max-width: 42rem;
+    margin-inline: auto;
+  }
+
+  .faq__item {
+    border-bottom: 1px solid var(--border);
+    list-style: none;
+  }
+
+  .faq__item::-webkit-details-marker { display: none; }
+  .faq__item::marker { display: none; content: ""; }
+
+  .faq__question {
+    width: 100%;
+    padding: var(--spacing-4) 0;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    font-family: inherit;
+    color: inherit;
+    transition: color 0.2s ease;
+  }
+
+  .faq__question:hover {
+    color: var(--primary);
+  }
+
+  .faq__question::after {
+    content: "+";
+    font-size: 1.25rem;
+    font-weight: 400;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+
+  .faq__item[open] .faq__question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq__answer {
+    padding-bottom: var(--spacing-4);
+    color: var(--muted-foreground);
+    line-height: 1.65;
+  }
+
+  .faq__answer p { margin: 0; }
+</style>

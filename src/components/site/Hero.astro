@@ -1,0 +1,122 @@
+---
+/**
+ * Hero — clean centered hero with bg-grid + bg-glow
+ */
+---
+
+<section class="hero-wrap">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="hero container">
+    <div class="hero__content" data-animate>
+      <span class="hero__eyebrow">HQNepal</span>
+      <h1 class="hero__headline">Software, marketing and IT — one team</h1>
+      <p class="hero__subheadline">
+        We build digital products, run growth campaigns, and manage infrastructure. Based in Pokhara, shipping worldwide.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="hero__cta-primary">Start a project</a>
+        <a href="#work" class="hero__cta-secondary">See our work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-wrap {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3.5rem, 8vw, 6.5rem) 0;
+  }
+
+  .hero {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .hero__content {
+    max-width: 52rem;
+    margin-inline: auto;
+  }
+
+  .hero__eyebrow {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-full);
+    border: 1px solid color-mix(in srgb, var(--primary) 15%, transparent);
+    background: color-mix(in srgb, var(--primary) 6%, transparent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__headline {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    max-width: 22ch;
+    margin: 0 auto;
+  }
+
+  .hero__subheadline {
+    margin-top: 1.25rem;
+    font-size: clamp(0.95rem, 1.2vw, 1.125rem);
+    line-height: 1.6;
+    color: var(--muted-foreground);
+    max-width: 38rem;
+    margin-inline: auto;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: var(--spacing-4);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .hero__cta-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.4rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: box-shadow 0.2s ease, opacity 0.2s ease;
+  }
+
+  .hero__cta-primary:hover {
+    box-shadow: var(--shadow-md);
+    opacity: 0.92;
+  }
+
+  .hero__cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.4rem;
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: box-shadow 0.2s ease;
+  }
+
+  .hero__cta-secondary:hover {
+    box-shadow: var(--shadow-md);
+  }
+</style>

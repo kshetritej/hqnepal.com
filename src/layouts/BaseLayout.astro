@@ -1,0 +1,71 @@
+---
+/**
+ * BaseLayout — root HTML shell for HQNepal
+ */
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/site/Footer.astro";
+import SEO from "../components/seo/SEO.astro";
+import { siteConfig } from "../config/site.config";
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  description?: string;
+  path?: string;
+  showHeader?: boolean;
+  showFooter?: boolean;
+}
+
+const {
+  title,
+  description = siteConfig.description,
+  path = "/",
+  showHeader = true,
+  showFooter = true,
+} = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Dark mode bootstrap (prevents FOUC) -->
+    <script is:inline>
+      (function() {
+        try {
+          const stored = localStorage.getItem("theme");
+          if (stored === "dark") {
+            document.documentElement.classList.add("dark");
+            return;
+          }
+          if (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <SEO
+      title={title}
+      description={description}
+      path={path}
+    />
+
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <slot name="head" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    {showHeader && <Header />}
+
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+
+    {showFooter && <Footer />}
+  </body>
+</html>

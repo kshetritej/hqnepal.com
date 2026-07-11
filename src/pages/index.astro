@@ -1,0 +1,30 @@
+---
+/**
+ * Home page — HQNepal
+ * Composes all landing sections
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/site/Hero.astro";
+import Clients from "../components/site/Clients.astro";
+import Stats from "../components/site/Stats.astro";
+import Services from "../components/site/Services.astro";
+import Mission from "../components/site/Mission.astro";
+import Work from "../components/site/Work.astro";
+import Testimonial from "../components/site/Testimonial.astro";
+import Pricing from "../components/site/Pricing.astro";
+import Faq from "../components/site/Faq.astro";
+import Cta from "../components/site/Cta.astro";
+---
+
+<BaseLayout title="HQNepal" path="/">
+  <Hero />
+  <Clients />
+  <Stats />
+  <Services />
+  <Work />
+  <Mission />
+  <Testimonial />
+  <Pricing />
+  <Faq />
+  <Cta />
+</BaseLayout>
